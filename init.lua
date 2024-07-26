@@ -41,4 +41,17 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
-require'lspconfig'.pyright.setup{}
+--require'lspconfig'.pyright.setup{}
+
+require'lspconfig'.pylsp.setup{
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = {'W391'},
+          maxLineLength = 100
+        }
+      }
+    }
+  }
+}
